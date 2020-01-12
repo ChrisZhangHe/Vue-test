@@ -41,6 +41,11 @@ export default new Router({
           component: () => import("./views/test/keep-alive/input")
         }
       ]
+    },
+    {
+      path:"/v-model",
+      name:'v-model',
+      component:()=>import('./views/test/v-model/index')
     }
   ]
 });

@@ -5,6 +5,7 @@
       <router-link to="/about">About</router-link>
       <router-link to="/my-confirm">test-my-confirm</router-link>
       <router-link to="/keep-alive">keep-alive</router-link>
+      <router-link to="/v-model">v-model</router-link>
     </div>
     <router-view />
   </div>
