@@ -24,6 +24,23 @@ export default new Router({
       path: "/my-confirm",
       name: "myConfirm",
       component: () => import("./views/test/confirm/index.vue")
+    },
+    {
+      path: "/keep-alive",
+      name: "/keep-alive",
+      component: () => import("./views/test/keep-alive/index"),
+      children: [
+        {
+          path: "input-a/:name",
+          name: "input-a",
+          component: () => import("./views/test/keep-alive/input")
+        },
+        {
+          path: "input-b/:name",
+          name: "input-b",
+          component: () => import("./views/test/keep-alive/input")
+        }
+      ]
     }
   ]
 });
