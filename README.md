@@ -14,3 +14,8 @@ npm run serve
 ```
 npm run build
 ```
+
+1、可插拔式组件 confirm
+2、keep-alive
+3、v-model input 封装
+
