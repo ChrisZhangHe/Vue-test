@@ -1,13 +1,30 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <router-link to="/my-confirm">test-my-confirm</router-link>
-      <router-link to="/keep-alive">keep-alive</router-link>
-      <router-link to="/v-model">v-model</router-link>
+      <router-link
+        class="link"
+        to="/"
+      >Home</router-link> |
+      <router-link
+        class="link"
+        to="/about"
+      >About</router-link>
+      <router-link
+        class="link"
+        to="/my-confirm"
+      >test-my-confirm</router-link>
+      <router-link
+        class="link"
+        to="/keep-alive"
+      >keep-alive</router-link>
+      <router-link
+        class="link"
+        to="/v-model"
+      >v-model</router-link>
     </div>
-    <router-view />
+    <keep-alive>
+      <router-view :key="$route.path" />
+    </keep-alive>
   </div>
 </template>
 <script>
@@ -34,5 +51,8 @@ export default {
       color: #42b983;
     }
   }
+}
+.link {
+  margin-left: 20px;
 }
 </style>

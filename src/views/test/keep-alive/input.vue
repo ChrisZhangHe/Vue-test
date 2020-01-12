@@ -1,12 +1,12 @@
 <template>
   <div>
-    {{$route.params.name}}
+    {{$route.path}}
     <el-input v-model="inputVal"></el-input>
   </div>
 </template>
 <script>
 export default {
-  name:'MyInput',
+  name: "MyInput",
   data() {
     return {
       inputVal: ""
@@ -16,15 +16,9 @@ export default {
     next();
   },
   watch: {
-    $route(to, from) {
-    this.inputVal = this.$route.params.name;
-      console.log("keep-alive-input:", this.$route.params.name);
-    }
+    $route(to, from) {}
   },
-  created() {
-    this.inputVal = this.$route.params.name;
-    console.log('input-created')
-  }
+  created() {}
 };
 </script>
 

@@ -31,21 +31,21 @@ export default new Router({
       component: () => import("./views/test/keep-alive/index"),
       children: [
         {
-          path: "input-a/:name",
+          path: "input-a",
           name: "input-a",
           component: () => import("./views/test/keep-alive/input")
         },
         {
-          path: "input-b/:name",
+          path: "input-b",
           name: "input-b",
-          component: () => import("./views/test/keep-alive/input")
+          component: () => import("./views/Home")
         }
       ]
     },
     {
-      path:"/v-model",
-      name:'v-model',
-      component:()=>import('./views/test/v-model/index')
+      path: "/v-model",
+      name: "v-model",
+      component: () => import("./views/test/v-model/index")
     }
   ]
 });
