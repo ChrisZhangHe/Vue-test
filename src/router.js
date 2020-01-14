@@ -46,6 +46,33 @@ export default new Router({
       path: "/v-model",
       name: "v-model",
       component: () => import("./views/test/v-model/index")
+    },
+    {
+      path: "/css",
+      name: "css",
+      component: () => import("./views/css"),
+      children: [
+        {
+          path: "",
+          name: "transition",
+          component: () => import("./views/css/components/transition")
+        },
+        {
+          path: "animation",
+          name: "animation",
+          component: () => import("./views/css/components/animation")
+        },
+        {
+          path: "transform",
+          name: "transform",
+          component: () => import("./views/css/components/transform")
+        }
+      ]
+    },
+    {
+      path: "/directive",
+      name: "directive",
+      component: () => import("./views/test/directive")
     }
   ]
 });

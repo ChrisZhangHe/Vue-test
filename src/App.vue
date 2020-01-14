@@ -21,16 +21,37 @@
         class="link"
         to="/v-model"
       >v-model</router-link>
+      <router-link
+        class="link"
+        to="/css"
+      >css</router-link>
+      <router-link
+        class="link"
+        to="/directive"
+      >directive</router-link>
     </div>
-    <keep-alive>
-      <router-view :key="$route.path" />
-    </keep-alive>
+    <!-- <keep-alive> -->
+    <router-view :key="$route.path" />
+    <!-- </keep-alive> -->
+
+    <el-popover
+      ref="popover"
+      placement="right"
+      title="标题"
+      width="200"
+      trigger="focus"
+      content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+    >
+    </el-popover>
+    <el-button v-popover:popover>focus 激活</el-button>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {};
+  },
+  methods: {
   }
 };
 </script>
