@@ -73,6 +73,16 @@ export default new Router({
       path: "/directive",
       name: "directive",
       component: () => import("./views/test/directive")
+    },
+    {
+      path: "/props",
+      name: "props",
+      component: () => import("./views/test/props")
+    },
+    {
+      path: "/slot",
+      name: "slot",
+      component: () => import("./views/test/slot/index")
     }
   ]
 });
