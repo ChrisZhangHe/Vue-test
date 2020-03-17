@@ -69,3 +69,21 @@ new Promise((res, rej) => {
   });
 
 console.log("end");
+
+//promise.all
+
+let promise1 = new Promise(res => {
+  setTimeout(() => {
+    res("promise-1");
+  }, 2000);
+});
+let promise2 = new Promise((res,rej) => {
+  setTimeout(() => {
+    rej("promise-2");
+  }, 1000);
+});
+Promise.all([promise1, promise2]).then(res => {
+  console.log("all:", res);
+}).catch(e=>{
+  console.log('catch:',e)
+})

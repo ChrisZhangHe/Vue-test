@@ -83,6 +83,11 @@ export default new Router({
       path: "/slot",
       name: "slot",
       component: () => import("./views/test/slot/index")
+    },
+    {
+      path: "/function-tags",
+      name: "function-tags",
+      component: () => import("./views/test/function-tags")
     }
   ]
 });

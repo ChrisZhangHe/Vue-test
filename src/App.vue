@@ -37,6 +37,10 @@
         class="link"
         to="/slot"
       >slot</router-link>
+      <router-link
+        class="link"
+        to="/function-tags"
+      >function-tags</router-link>
     </div>
     <!-- <keep-alive> -->
     <router-view :key="$route.path" />
