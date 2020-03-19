@@ -3,8 +3,9 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 
 Vue.use(Router);
-
-export default new Router({
+const about = import("./views/About.vue");
+const route = new Router({
+  mode: "history",
   routes: [
     {
       path: "/",
@@ -17,8 +18,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+      component: about
     },
     {
       path: "/my-confirm",
@@ -89,5 +89,29 @@ export default new Router({
       name: "function-tags",
       component: () => import("./views/test/function-tags")
     }
+    // {
+    //   path: "*",
+    //   component: () => import("./views/404.vue")
+    // }
   ]
 });
+// 动态添加路由
+route.addRoutes([
+  {
+    path: "/route1",
+    name: "route1",
+    component: () => import(`./views/test/${"route/index"}`),
+    props: { newsletterPopup: 1 },
+    meta:{
+      isKeepAlive:true
+    }
+  },
+  {
+    path: "/route2",
+    name: "route2",
+    component: () => import(`./views/test/${"route/index"}`),
+    props: { newsletterPopup: 2 },
+    meta:{ isKeepAlive:false}
+  }
+]);
+export default route;

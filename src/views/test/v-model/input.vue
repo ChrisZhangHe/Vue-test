@@ -1,12 +1,8 @@
 <template>
   <div>
-    <!-- <input
-      :value="inputValue"
-      @input="onInput"
-    /> -->
     <el-input
-      v-model="myInputVal"
-      @input="onInput"
+      v-model="inputVal"
+      @input="input"
     ></el-input>
   </div>
 </template>
@@ -14,22 +10,22 @@
 export default {
   name: "MyInput",
   model: {
-    prop: "inputValue",
+    prop: "coomVal",
     event: "onInput"
   },
   data() {
     return {
-      myInputVal: ""
+      inputVal: ""
     };
   },
-  props: ["inputValue"],
+  props: ["coomVal"],
   methods: {
-    onInput(e) {
+    input(e) {
       this.$emit("onInput", e);
     }
   },
   created() {
-    this.myInputVal = this.inputValue;
+    this.inputVal = this.coomVal;
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    index:{{myInputVal}}
-    <my-input v-model="myInputVal"></my-input>
+    inputVal:{{inputVal}}
+    <my-input v-model="inputVal"></my-input>
   </div>
 </template>
 <script>
@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      myInputVal: ""
+      inputVal: "3"
     };
   }
 };

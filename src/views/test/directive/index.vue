@@ -23,6 +23,8 @@ export default {
       },
       inserted(el, binding, vnode, oldVnode) {
         console.log("inserted:");
+        el.focus();
+        el.hidden=false;
         el.style.border = "1px solid blue";
       },
       update(el, binding, vnode, oldVnode) {

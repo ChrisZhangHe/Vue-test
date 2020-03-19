@@ -33,7 +33,7 @@
         class="link"
         to="/props"
       >props</router-link>
-       <router-link
+      <router-link
         class="link"
         to="/slot"
       >slot</router-link>
@@ -41,16 +41,33 @@
         class="link"
         to="/function-tags"
       >function-tags</router-link>
+      <router-link
+        class="link"
+        to="/route1"
+      >route-1</router-link>
+      <router-link
+        class="link"
+        to="/route2"
+      >route-2</router-link>
     </div>
-    <!-- <keep-alive> -->
-    <router-view :key="$route.path" />
-    <!-- </keep-alive> -->
+    <keep-alive>
+      <router-view
+        v-if="$route.meta.isKeepAlive&&routePath.includes($route.path)"
+        :key="$route.path"
+      />
+    </keep-alive>
+    <router-view
+      v-if="!$route.meta.isKeepAlive||!routePath.includes($route.path)"
+      :key="$route.path"
+    />
   </div>
 </template>
 <script>
 export default {
   data() {
-    return {};
+    return {
+      routePath: ['/route1'] //包含在routePath中且isKeepAlive为true则保存状态信息
+    };
   },
   methods: {}
 };
