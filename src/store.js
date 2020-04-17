@@ -5,10 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    dynamicRoutes:[]
   },
   mutations: {
-
+    addDynamicRoutes(state,pathName){
+      state.dynamicRoutes.push(pathName);
+    }
   },
   actions: {
 

@@ -4,11 +4,11 @@
       <router-link
         class="link"
         to="/"
-      >Home</router-link> |
-      <router-link
+      >Home</router-link>
+      <!-- <router-link
         class="link"
         to="/about"
-      >About</router-link>
+      >About</router-link> -->
       <router-link
         class="link"
         to="/my-confirm"
@@ -49,6 +49,23 @@
         class="link"
         to="/route2"
       >route-2</router-link>
+      <router-link
+        class="link"
+        to="/vue-api"
+      >vue-api</router-link>
+      <router-link
+        to="/preview"
+        class="link"
+      >preview</router-link>
+      <!-- <router-link to="/checkModel" class="link">checkModel</router-link>
+      <router-link to="/upload" class="link">upload</router-link>
+      <router-link to="/event" class="link">event</router-link> -->
+      <router-link
+        v-for="pathName in paths"
+        :key="pathName"
+        :to="'/'+pathName"
+        class="link"
+      >{{pathName}}</router-link>
     </div>
     <keep-alive>
       <router-view
@@ -66,8 +83,13 @@
 export default {
   data() {
     return {
-      routePath: ['/route1'] //包含在routePath中且isKeepAlive为true则保存状态信息
+      routePath: ["/route1"] //包含在routePath中且isKeepAlive为true则保存状态信息
     };
+  },
+  computed: {
+    paths() {
+      return this.$store.state.dynamicRoutes;
+    }
   },
   methods: {}
 };

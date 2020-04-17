@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import dtinput from "dtinput";
+import("./js/index");
 
 import confirmInstall from "./views/test/confirm/install.js";
 
@@ -11,6 +13,9 @@ Vue.config.productionTip = false;
 
 Vue.use(confirmInstall);
 Vue.use(ElementUI);
+console.log("------", dtinput);
+Vue.use(dtinput);
+
 new Vue({
   router,
   store,

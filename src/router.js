@@ -1,11 +1,12 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
+import store from './store'
 
 Vue.use(Router);
 const about = import("./views/About.vue");
 const route = new Router({
-  mode: "history",
+  mode: "hash",
   routes: [
     {
       path: "/",
@@ -14,10 +15,6 @@ const route = new Router({
     },
     {
       path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: about
     },
     {
@@ -89,21 +86,32 @@ const route = new Router({
       name: "function-tags",
       component: () => import("./views/test/function-tags")
     }
-    // {
-    //   path: "*",
-    //   component: () => import("./views/404.vue")
-    // }
   ]
 });
 // 动态添加路由
+const componentContext = require.context("./views/test", false, /.vue$/);
+const addRoutes = [];
+componentContext.keys().forEach(fileName => {
+  const componentConfig = componentContext(fileName);
+  fileName = fileName
+    .split("/")
+    .pop()
+    .replace(/\.\w+$/, "");
+  addRoutes.push({
+    path: `/${fileName}`,
+    component: componentConfig.default
+  });
+  store.commit('addDynamicRoutes',fileName)
+});
 route.addRoutes([
+  ...addRoutes,
   {
     path: "/route1",
     name: "route1",
     component: () => import(`./views/test/${"route/index"}`),
     props: { newsletterPopup: 1 },
-    meta:{
-      isKeepAlive:true
+    meta: {
+      isKeepAlive: true
     }
   },
   {
@@ -111,7 +119,32 @@ route.addRoutes([
     name: "route2",
     component: () => import(`./views/test/${"route/index"}`),
     props: { newsletterPopup: 2 },
-    meta:{ isKeepAlive:false}
+    meta: { isKeepAlive: false }
+  },
+  {
+    path: "/vue-api",
+    component: () => import("./views/test/vue-api/index")
+  },
+  // {
+  //   path: "/check-model",
+  //   component: () => import("./views/test/checkModel")
+  // },
+  // {
+  //   path: "/upload",
+  //   component: () => import("./views/test/upload")
+  // },
+  
+  // {
+  //   path: "/event",
+  //   component: () => import("./views/test/event")
+  // },
+  {
+    path: "/preview",
+    component: () => import("./views/test/preview/index")
+  },
+  {
+    path: "*",
+    component: () => import("./views/404.vue")
   }
 ]);
 export default route;
