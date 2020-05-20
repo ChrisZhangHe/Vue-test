@@ -77,13 +77,27 @@ let promise1 = new Promise(res => {
     res("promise-1");
   }, 2000);
 });
-let promise2 = new Promise((res,rej) => {
+let promise2 = new Promise((res, rej) => {
   setTimeout(() => {
     rej("promise-2");
   }, 1000);
 });
-Promise.all([promise1, promise2]).then(res => {
-  console.log("all:", res);
-}).catch(e=>{
-  console.log('catch:',e)
-})
+Promise.all([promise1, promise2])
+  .then(res => {
+    console.log("all:", res);
+  })
+  .catch(e => {
+    console.log("catch:", e);
+  });
+
+console.log(1);
+var p = new Promise((res, rej) => {
+  console.log(2);
+  res(1);
+});
+console.log(3);
+p.then(r => {
+  console.log(5);
+  // console.log(r);
+});
+console.log(4);

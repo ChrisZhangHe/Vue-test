@@ -1,14 +1,13 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import store from './store'
+import store from "./store";
 
 Vue.use(Router);
 const about = import("./views/About.vue");
 const route = new Router({
   mode: "hash",
-  routes: [
-    {
+  routes: [{
       path: "/",
       name: "home",
       component: Home
@@ -26,8 +25,7 @@ const route = new Router({
       path: "/keep-alive",
       name: "/keep-alive",
       component: () => import("./views/test/keep-alive/index"),
-      children: [
-        {
+      children: [{
           path: "input-a",
           name: "input-a",
           component: () => import("./views/test/keep-alive/input")
@@ -48,8 +46,7 @@ const route = new Router({
       path: "/css",
       name: "css",
       component: () => import("./views/css"),
-      children: [
-        {
+      children: [{
           path: "",
           name: "transition",
           component: () => import("./views/css/components/transition")
@@ -85,6 +82,26 @@ const route = new Router({
       path: "/function-tags",
       name: "function-tags",
       component: () => import("./views/test/function-tags")
+    },
+    {
+      path: "/render",
+      name: "render",
+      component: () => import("./views/test/render/index.vue")
+    },
+    {
+      path: "/mixins",
+      name: "mixins",
+      component: () => import("./views/test/mixins/index.vue")
+    },
+    {
+      path: "/funComponent",
+      name: "funComponent",
+      component: () => import("./views/test/funComponent/index.vue")
+    },
+    {
+      path: "/scss",
+      name: 'scss',
+      component: () => import('./views/test/scss/index.vue')
     }
   ]
 });
@@ -101,7 +118,7 @@ componentContext.keys().forEach(fileName => {
     path: `/${fileName}`,
     component: componentConfig.default
   });
-  store.commit('addDynamicRoutes',fileName)
+  store.commit("addDynamicRoutes", fileName);
 });
 route.addRoutes([
   ...addRoutes,
@@ -109,7 +126,9 @@ route.addRoutes([
     path: "/route1",
     name: "route1",
     component: () => import(`./views/test/${"route/index"}`),
-    props: { newsletterPopup: 1 },
+    props: {
+      newsletterPopup: 1
+    },
     meta: {
       isKeepAlive: true
     }
@@ -118,8 +137,12 @@ route.addRoutes([
     path: "/route2",
     name: "route2",
     component: () => import(`./views/test/${"route/index"}`),
-    props: { newsletterPopup: 2 },
-    meta: { isKeepAlive: false }
+    props: {
+      newsletterPopup: 2
+    },
+    meta: {
+      isKeepAlive: false
+    }
   },
   {
     path: "/vue-api",
@@ -133,7 +156,7 @@ route.addRoutes([
   //   path: "/upload",
   //   component: () => import("./views/test/upload")
   // },
-  
+
   // {
   //   path: "/event",
   //   component: () => import("./views/test/event")

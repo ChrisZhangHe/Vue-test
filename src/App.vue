@@ -57,6 +57,18 @@
         to="/preview"
         class="link"
       >preview</router-link>
+      <router-link
+        to="/render"
+        class="link"
+      >render</router-link>
+       <router-link
+        to="/mixins"
+        class="link"
+      >mixins</router-link>
+       <router-link
+        to="/funComponent"
+        class="link"
+      >funComponent</router-link>
       <!-- <router-link to="/checkModel" class="link">checkModel</router-link>
       <router-link to="/upload" class="link">upload</router-link>
       <router-link to="/event" class="link">event</router-link> -->
@@ -66,6 +78,7 @@
         :to="'/'+pathName"
         class="link"
       >{{pathName}}</router-link>
+      <router-link to="/scss" class="link">scss</router-link>
     </div>
     <keep-alive>
       <router-view

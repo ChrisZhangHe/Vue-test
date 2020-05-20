@@ -10,7 +10,7 @@ export default {
   methods: {
     openConfirm() {
       this.$MyConfirm({
-        confirmBtnText: "确认",
+        confirmBtnText: "确认1",
         // cancerBtnText: "取消",
         // onConfirm() {
         //   console.log("test handleConfirm");

@@ -1,5 +1,6 @@
 module.exports = {
-  publicPath: "./"
+  publicPath: "/defaultPath/",
+  productionSourceMap: true,
   //   /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */
   //   /* baseUrl: process.env.NODE_ENV === 'production' ? './' : '/' */
   // //   publicPath: process.env.NODE_ENV === "production" ? "/public/" : "./",
@@ -14,27 +15,42 @@ module.exports = {
   //   /* 代码保存时进行eslint检测 */
   //   lintOnSave: true,
   //   /* webpack-dev-server 相关配置 */
-  //   devServer: {
-  //     /* 自动打开浏览器 */
-  //     open: true,
-  //     /* 设置为0.0.0.0则所有的地址均能访问 */
-  //     host: "0.0.0.0",
-  //     port: 8066,
-  //     https: false,
-  //     hotOnly: true,
-  //     /* 使用代理 */
-  //     proxy: {
-  //       "/api": {
-  //         /* 目标代理服务器地址 */
-  //         target: "http://47.100.47.3/",
-  //         /* 允许跨域 */
-  //         changeOrigin: true
-  //       }
-  //     }
-  //   },
-  //   chainWebpack: config => {
-  //     config.resolve.alias
-  //       .set("@", resolve("src"))
-  //       .set("@assets", resolve("src/assets"))
-  //   }
+  devServer: {
+    /* 自动打开浏览器 */
+    open: true,
+    /* 设置为0.0.0.0则所有的地址均能访问 */
+    host: "0.0.0.0",
+    port: 8066,
+    https: false,
+    hotOnly: true,
+    /* 使用代理 */
+    // proxy: {
+    //   // "/demo/api": {
+    //   //   /* 目标代理服务器地址 */
+    //   //   target: "http://mock-api.com/oKmdBXnX.mock/",
+    //   //   /* 允许跨域 */
+    //   //   changeOrigin: true
+    //   // }
+    //   // "/cjgj": {
+    //   //   /* 目标代理服务器地址 */
+    //   //   target: "http://202.61.88.250:8902/",
+    //   //   /* 允许跨域 */
+    //   //   changeOrigin: true
+    //   // }
+    // }
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        vue$: "vue/dist/vue.esm.js" //解决Vue.component 注册组件时template模板不可用问题
+      }
+    }
+  },
+  chainWebpack: config => {
+    config.module
+      .rule("images")
+      .use("url-loader")
+      .loader("url-loader")
+      .tap(options => Object.assign(options, { limit: 20000 })); //配置图片打包为base64最小限制
+  }
 };

@@ -1,7 +1,9 @@
-console.log("index.js run !");
+import('./test.js')
 import("./import");
 import obj from "./export.js";
-console.log("indexObj:", obj);
+import("./crypto-js")
+// console.log("indexObj:", obj);
+// console.log("index.js run !");
 obj.num = 3;
 
 

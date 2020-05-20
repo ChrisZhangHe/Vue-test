@@ -1,0 +1,6 @@
+@import "./variable";
+
+h3 {
+    border: $border;
+    line-height: $line-height;
+}

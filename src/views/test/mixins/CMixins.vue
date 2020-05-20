@@ -1,0 +1,24 @@
+<template>
+  <div>
+    CMixins:{{n}}
+  </div>
+</template>
+<script>
+import { mixinsConfig } from "./index.js";
+import { setTimeout } from "timers";
+export default {
+  name: "CMixins",
+  data() {
+    return {
+    //   n: this.getNum()
+    };
+  },
+  mixins: [mixinsConfig],
+  mounted() {
+      this.n=this.getNum();
+    setTimeout(() => {
+      this.n = this.getNum();
+    }, 3000);
+  }
+};
+</script>

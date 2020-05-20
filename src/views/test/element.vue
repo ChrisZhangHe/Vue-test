@@ -1,5 +1,20 @@
 <template>
   <div>
+    <!-- html -->
+    <div class="link">
+      <a href="#">link</a>
+    </div>
+    <!-- el-form -->
+    <el-form :model="formModel">
+      <el-form-item>
+        <template slot="label">
+          <div>
+            <h3>label</h3>
+          </div>
+        </template>
+        <el-input v-model="formModel.name"></el-input>
+      </el-form-item>
+    </el-form>
     <!-- 级联选择器 -->
     <div class="block">
       <span class="demonstration">hover 触发子菜单</span>
@@ -285,7 +300,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      formModel: { name: 1 }
     };
   },
   methods: {
@@ -299,3 +315,12 @@ export default {
   created() {}
 };
 </script>
+<style lang="scss" scoped>
+.link {
+  a {
+    &:hover {
+      color: red;
+    }
+  }
+}
+</style>
