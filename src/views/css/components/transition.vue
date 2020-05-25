@@ -22,4 +22,3 @@ export default {
   line-height: 100px;
 }
 </style>
-

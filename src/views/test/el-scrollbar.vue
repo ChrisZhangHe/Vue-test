@@ -24,7 +24,6 @@
       <div>1</div>
     </div>
   </div>
-
 </template>
 <style lang="scss" scoped>
 .scrollBar {

@@ -1,13 +1,10 @@
 <template>
   <div>
-    <input
-      v-inputFocus
-      type="text"
-      v-model="inputVal"
-    >
+    <input v-inputFocus type="text" v-model="inputVal" />
   </div>
 </template>
 <script>
+/* eslint-disable no-param-reassign */
 export default {
   name: "MyDirective",
   data() {
@@ -17,24 +14,24 @@ export default {
   },
   directives: {
     inputFocus: {
-      bind(el, binding, vnode, oldVnode) {
+      bind(el) {
         console.log("bind:");
         el.style.border = "1px solid red";
       },
-      inserted(el, binding, vnode, oldVnode) {
+      inserted(el) {
         console.log("inserted:");
         el.focus();
-        el.hidden=false;
+        el.hidden = false;
         el.style.border = "1px solid blue";
       },
-      update(el, binding, vnode, oldVnode) {
+      update(el) {
         console.log("update:");
         el.style.border = "1px solid yellow";
       },
-      componentUpdated(el, binding, vnode, oldVnode) {
+      componentUpdated() {
         console.log("componentUpdated:");
       },
-      unbind(el, binding, vnode, oldVnode) {
+      unbind() {
         console.log("unbind:");
       }
     }
@@ -46,4 +43,3 @@ export default {
   }
 };
 </script>
-

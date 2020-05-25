@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>num:{{num}}</h3>
-    <h3>array:{{array}}</h3>
+    <h3>num:{{ num }}</h3>
+    <h3>array:{{ array }}</h3>
   </div>
 </template>
 <script>

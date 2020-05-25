@@ -1,4 +1,5 @@
 import RenderComponentTest from "./component.vue";
+
 export default {
   name: "JSXTest",
   props: {
@@ -11,7 +12,7 @@ export default {
       this.$emit("comClick", "RenderComponentTest-click");
     }
   },
-  render(h) {
+  render() {
     const scopedSlots = {
       default: () => <div>default-info</div>,
       body: props => <div>body-info:{{ props }}</div>
@@ -19,12 +20,12 @@ export default {
     const data = {
       props: {
         propAge: this.propAge,
-        value:'1'
+        value: "1"
       },
       on: {
         comClick: this.handleClick,
-        input(val){
-            alert(val)
+        input() {
+          // alert(val);
         }
       }
     };

@@ -1,10 +1,7 @@
 <template>
   <div>
-    <el-input
-      v-model="inputVal"
-      @input="handleInput"
-    ></el-input>
-    <el-tag>propAge:{{propAge}}</el-tag>
+    <el-input v-model="inputVal" @input="handleInput"></el-input>
+    <el-tag>propAge:{{ propAge }}</el-tag>
     <el-button @click="handleClick">click</el-button>
     <div>
       <h2>slot-default</h2>
@@ -12,10 +9,7 @@
     </div>
     <div>
       <h2>slot-body</h2>
-      <slot
-        name="body"
-        v-bind:slotBodyData="slotBodyData"
-      ></slot>
+      <slot name="body" v-bind:slotBodyData="slotBodyData"></slot>
     </div>
   </div>
 </template>

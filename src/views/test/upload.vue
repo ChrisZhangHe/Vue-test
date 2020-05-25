@@ -1,10 +1,7 @@
 <template>
   <div>
     <form>
-      <input
-        id="fileId"
-        type="file"
-      >
+      <input id="fileId" type="file" />
     </form>
     <el-upload
       ref="upload"
@@ -14,17 +11,10 @@
       :auto-upload="false"
       :data="param"
     >
-      <el-button
-        slot="trigger"
-        size="small"
-        type="primary"
-      >选取文件</el-button>
-      <el-button
-        style="margin-left: 10px;"
-        size="small"
-        type="success"
-        @click="submitUpload"
-      >上传到服务器</el-button>
+      <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+      <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload"
+        >上传到服务器</el-button
+      >
     </el-upload>
   </div>
 </template>
@@ -47,7 +37,7 @@ export default {
       this.param.ext = file.name.slice(file.name.lastIndexOf(".") + 1);
     },
     uploadFile(option) {
-      var fileObj = document.getElementById("fileId").files[0]; // js 获取文件对象
+      const fileObj = document.getElementById("fileId").files[0]; // js 获取文件对象
       console.log(option.file);
       console.log(fileObj);
       debugger;

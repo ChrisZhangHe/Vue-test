@@ -305,7 +305,7 @@ export default {
     };
   },
   methods: {
-    handleChange(value) {
+    handleChange() {
       //   console.log(value);
       console.log(this.$refs.demo.getCheckedNodes());
     }

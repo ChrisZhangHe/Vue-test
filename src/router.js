@@ -7,7 +7,8 @@ Vue.use(Router);
 const about = import("./views/About.vue");
 const route = new Router({
   mode: "hash",
-  routes: [{
+  routes: [
+    {
       path: "/",
       name: "home",
       component: Home
@@ -25,7 +26,8 @@ const route = new Router({
       path: "/keep-alive",
       name: "/keep-alive",
       component: () => import("./views/test/keep-alive/index"),
-      children: [{
+      children: [
+        {
           path: "input-a",
           name: "input-a",
           component: () => import("./views/test/keep-alive/input")
@@ -46,7 +48,8 @@ const route = new Router({
       path: "/css",
       name: "css",
       component: () => import("./views/css"),
-      children: [{
+      children: [
+        {
           path: "",
           name: "transition",
           component: () => import("./views/css/components/transition")
@@ -100,8 +103,8 @@ const route = new Router({
     },
     {
       path: "/scss",
-      name: 'scss',
-      component: () => import('./views/test/scss/index.vue')
+      name: "scss",
+      component: () => import("./views/test/scss/index.vue")
     }
   ]
 });

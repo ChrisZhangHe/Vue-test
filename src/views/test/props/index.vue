@@ -1,8 +1,8 @@
 <template>
   <div>
     <!-- <index-props v-bind="propObj"></index-props> -->
-    <h3>index-num:{{propObj.num}}</h3>
-    <h3>index-array:{{propObj.array}}</h3>
+    <h3>index-num:{{ propObj.num }}</h3>
+    <h3>index-array:{{ propObj.array }}</h3>
     <!-- <index-props
       v-bind:num="propObj.num"
       v-bind:array="propObj.array"

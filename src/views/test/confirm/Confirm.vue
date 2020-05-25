@@ -1,9 +1,9 @@
-  <!-- 可插拔式弹窗确认组件 -->
+<!-- 可插拔式弹窗确认组件 -->
 <template>
   <div id="myconfirm">
     <el-input v-model="inputVal"></el-input>
-    <el-button @click="onConfirm">{{confirmBtnText}}</el-button>
-    <el-button @click="onCancer">{{cancerBtnText}}</el-button>
+    <el-button @click="onConfirm">{{ confirmBtnText }}</el-button>
+    <el-button @click="onCancer">{{ cancerBtnText }}</el-button>
   </div>
 </template>
 <script>
@@ -11,7 +11,7 @@ export default {
   name: "MyConfirm",
   data() {
     return {
-      inputVal:'',
+      inputVal: "",
       confirmBtnText: "默认确认",
       cancerBtnText: "默认取消",
       onConfirm() {
@@ -37,4 +37,3 @@ export default {
   border: 1px solid;
 }
 </style>
-

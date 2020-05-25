@@ -1,5 +1,4 @@
 <template>
-
   <div>
     <!-- message:{{message}}
     name:{{name}}
@@ -10,16 +9,16 @@
       v-bind:disabled="unEdit"
       v-model="message"
     ></el-input> -->
-    <template v-if="type==true">
+    <template v-if="type == true">
       <div>
         <label for="">名称</label>
-        <input placeholder="请输入名称">
+        <input placeholder="请输入名称" />
       </div>
     </template>
     <template v-else>
       <div>
         <label for="">密码</label>
-        <input placeholder="请输入密码">
+        <input placeholder="请输入密码" />
       </div>
     </template>
 
@@ -48,7 +47,7 @@ export default {
   },
   computed: {
     nameVal() {
-      return this.name + "123";
+      return `${this.name}123`;
     }
     // message: {
     //   get() {
@@ -79,4 +78,3 @@ export default {
   updated() {}
 };
 </script>
-

@@ -1,10 +1,7 @@
 <template>
   <div>
-    route:{{newsletterPopup}}
-    <el-input
-      v-model="newsletterPopupVal"
-      type="text"
-    ></el-input>
+    route:{{ newsletterPopup }}
+    <el-input v-model="newsletterPopupVal" type="text"></el-input>
   </div>
 </template>
 <script>
@@ -27,14 +24,17 @@ export default {
     console.log("deactivated----");
   },
   beforeRouteEnter(to, from, next) {
+    // eslint-disable-next-line no-param-reassign
     to.meta.isKeepAlive = false;
     next();
   },
   beforeRouteUpdate(to, from, next) {
+    // eslint-disable-next-line no-param-reassign
     to.meta.isKeepAlive = false;
     next();
   },
   beforeRouteLeave(to, from, next) {
+    // eslint-disable-next-line no-param-reassign
     to.meta.isKeepAlive = false;
     next();
   }

@@ -1,7 +1,7 @@
-import dInput from "./dInput";
+import dInput from "./dInput.vue";
 
 const plugin = {
-  install(Vue, options) {
+  install(Vue) {
     Vue.component("dInput", dInput);
   }
 };

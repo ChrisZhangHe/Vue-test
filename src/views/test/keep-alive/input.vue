@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{$route.path}}
+    {{ $route.path }}
     <el-input v-model="inputVal"></el-input>
   </div>
 </template>
@@ -16,9 +16,8 @@ export default {
     next();
   },
   watch: {
-    $route(to, from) {}
+    $route() {}
   },
   created() {}
 };
 </script>
-

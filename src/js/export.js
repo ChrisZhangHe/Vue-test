@@ -1,9 +1,9 @@
-let obj = {
+const obj = {
   num: 1
 };
 // console.log("----11----");
-let a = 1;
-export let b = 2;
+const a = 1;
+export const b = 2;
 export default {
   a
 };

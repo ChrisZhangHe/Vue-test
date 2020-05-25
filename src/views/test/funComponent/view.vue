@@ -1,11 +1,8 @@
-
 <template>
   <div>
     <fun-com>
-      <template v-slot:default="{test}">
-        <div>
-          test:{{test}}
-        </div>
+      <template v-slot:default="{ test }">
+        <div>test:{{ test }}</div>
       </template>
     </fun-com>
   </div>

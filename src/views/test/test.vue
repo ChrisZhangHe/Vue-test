@@ -1,7 +1,6 @@
 <template>
   <div>
-    <dInput>
-    </dInput>
+    <dInput> </dInput>
   </div>
 </template>
 <script>

@@ -5,7 +5,9 @@
       <el-button @click.left="mouseClick('leftClick')">leftClick</el-button>
       <el-button @contextmenu.prevent="mouseClick('rightClick')">rightClick</el-button>
       <el-button @click.middle="mouseClick('middleClick')">middleClick</el-button>
-      <div @contextmenu.prevent="mouseClick('rightContextmenuDivClick')">rightContextmenuDivClick</div>
+      <div @contextmenu.prevent="mouseClick('rightContextmenuDivClick')">
+        rightContextmenuDivClick
+      </div>
       <div @click.right.prevent="mouseClick('rightDivClick')">rightDivClick</div>
       <div @click.middle="mouseClick('middleDivClick')">middleDivClick</div>
     </div>

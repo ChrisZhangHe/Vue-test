@@ -1,17 +1,19 @@
-export const mixinsConfig = {
-    data(){
-        return {
-            num:23
-        }
+export default {
+  mixinsConfig: {
+    data() {
+      return {
+        num: 23
+      };
     },
     computed: {
-        cNum(){
-            return this.num
-        }
+      cNum() {
+        return this.num;
+      }
     },
     methods: {
-        getNum(){
-            return this.num;
-        }
-    },
+      getNum() {
+        return this.num;
+      }
+    }
+  }
 };

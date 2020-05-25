@@ -1,18 +1,19 @@
 <template>
   <div>
-    datacNum:{{cNum}}
+    datacNum:{{ cNum }}
     <el-input v-model="num"></el-input>
     <c-mixins></c-mixins>
   </div>
 </template>
 <script>
-import { mixinsConfig } from "./index.js";
+import { mixinsConfig } from "./index";
 import CMixins from "./CMixins.vue";
+
 export default {
   name: "Mixins",
   mixins: [mixinsConfig],
   components: {
-    CMixins: CMixins // () => import("./CMixins.vue")
+    CMixins // () => import("./CMixins.vue")
   },
   created() {
     // this.num = 123;

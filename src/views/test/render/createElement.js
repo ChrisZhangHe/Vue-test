@@ -1,4 +1,5 @@
 import RenderComponentTest from "./component.vue";
+
 export default {
   name: "CreateElementTest",
   props: {
@@ -25,9 +26,9 @@ export default {
       }
     };
     return createElement(RenderComponentTest, data, [
-        this.$slots
-    //   this.$slots.default.flat(1),
-    //   this.$slots.body.flat(1)
+      this.$slots
+      //   this.$slots.default.flat(1),
+      //   this.$slots.body.flat(1)
     ]);
     // const scopedSlots = {
     //   default: () => <div>default-info</div>,

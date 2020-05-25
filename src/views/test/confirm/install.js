@@ -1,13 +1,15 @@
+/* eslint-disable no-param-reassign */
 import MyConfirm from "./Confirm.vue";
+
 export default {
-  install: function(Vue) {
-    const confirmVue = Vue.extend(MyConfirm);
+  install(Vue) {
+    const ConfirmVue = Vue.extend(MyConfirm);
     let confirmObj = null;
     Vue.prototype.$MyConfirm = function(data) {
       const dom = document.createElement("div");
       document.body.appendChild(dom);
-      confirmObj && confirmObj.uninstall();
-      confirmObj = new confirmVue({
+      if (confirmObj) confirmObj.uninstall();
+      confirmObj = new ConfirmVue({
         data() {
           return data;
         }

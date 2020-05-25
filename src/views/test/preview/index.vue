@@ -1,12 +1,13 @@
 <template>
   <div>
-    <preview
-      :mediaList="mediaList"
-      :audioList="audioList"
-    ></preview>
+    <preview :mediaList="mediaList" :audioList="audioList"></preview>
   </div>
 </template>
 <script>
+const img001 = require("./files/img001.jpg");
+const img002 = require("./files/img002.jpg");
+const img003 = require("./files/img003.jpg");
+
 export default {
   name: "PreviewIndex",
   components: {
@@ -17,11 +18,11 @@ export default {
       mediaList: [
         {
           type: "img",
-          src: require("./files/img001.jpg")
+          src: img001
         },
         {
           type: "img",
-          src: require("./files/img002.jpg")
+          src: img002
         },
         {
           type: "video",
@@ -29,7 +30,7 @@ export default {
         },
         {
           type: "other",
-          src: require("./files/img003.jpg")
+          src: img003
         }
       ],
       audioList: ["/audio.ogv"]

@@ -2,11 +2,7 @@
   <div>
     <h3>版本2.1.1</h3>
     <h3>测试Nexus</h3>
-    <input
-      type="text"
-      @change="change"
-      v-model="value"
-    >
+    <input type="text" @change="change" v-model="value" />
   </div>
 </template>
 <script>

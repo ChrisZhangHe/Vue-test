@@ -2,35 +2,33 @@
   <div>
     <my-slot v-bind:dynamicSlot="dynamicSlot">
       default-slot-content
-      <h3>parent-data:{{parentData}}</h3>
+      <h3>parent-data:{{ parentData }}</h3>
       <!-- <template v-slot="value2">
         <div>
           default:{{value2.default}}
         </div>
       </template> -->
       <template v-slot:yellowName="slotProps">
-        <div style="color:red">
-          yellow：{{slotProps.yellowVal}}
-        </div>
+        <div style="color:red">yellow：{{ slotProps.yellowVal }}</div>
       </template>
       <h3>动态插槽名</h3>
       <template v-slot:[slotName]="slotProps">
         <div>
-          插槽名为:{{slotName}}
+          插槽名为:{{ slotName }}
           <br />
-          插槽值为:{{slotProps}}
+          插槽值为:{{ slotProps }}
         </div>
       </template>
       <template #pithy="{propValue}">
         <div>
           具名插槽的缩写:<br />
-          propValue:{{propValue}}
+          propValue:{{ propValue }}
         </div>
       </template>
       <template #dynamicSlotName1="{propValue}">
         <div>
           动态创建插槽：<br />
-          propValue:{{propValue}}
+          propValue:{{ propValue }}
         </div>
       </template>
     </my-slot>
@@ -45,7 +43,7 @@ export default {
   data() {
     return {
       parentData: "default-slot-parentData",
-      slotName: "footer", //header
+      slotName: "footer", // header
       dynamicSlot: {
         isCreate: true,
         name: "dynamicSlotName1",

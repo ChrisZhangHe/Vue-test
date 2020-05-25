@@ -2,29 +2,20 @@
   <div>
     <!-- 原生css控制 -->
     <el-button @click="isShow">显示内容</el-button>
-    <div
-      :class="contentClass"
-      v-if="isShowContent"
-    >
+    <div :class="contentClass" v-if="isShowContent">
       显示内容
     </div>
     <!-- vue transiton控制 -->
     <el-button @click="isShowVue">VueTransition</el-button>
-    <transition
-      name="fade"
-      :duration="{ enter: 3000, leave: 3000 }"
-    >
-      <div
-        class="vueContent"
-        v-if="isShowVueContent"
-      ></div>
+    <transition name="fade" :duration="{ enter: 3000, leave: 3000 }">
+      <div class="vueContent" v-if="isShowVueContent"></div>
     </transition>
     <!-- swipe -->
     <div>
       <el-button @click="next">next</el-button>
       <transition name="swipe">
         <div class="swipeContent">
-          {{content}}
+          {{ content }}
         </div>
       </transition>
     </div>
@@ -122,4 +113,3 @@ export default {
 .swipe-leave-to {
 }
 </style>
-

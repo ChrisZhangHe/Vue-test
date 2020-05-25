@@ -1,5 +1,9 @@
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+
 module.exports = {
-  publicPath: "/defaultPath/",
+  lintOnSave: false,
+  publicPath: "./",
   productionSourceMap: true,
   //   /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */
   //   /* baseUrl: process.env.NODE_ENV === 'production' ? './' : '/' */
@@ -22,7 +26,7 @@ module.exports = {
     host: "0.0.0.0",
     port: 8066,
     https: false,
-    hotOnly: true,
+    hotOnly: true
     /* 使用代理 */
     // proxy: {
     //   // "/demo/api": {
@@ -42,8 +46,25 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        vue$: "vue/dist/vue.esm.js" //解决Vue.component 注册组件时template模板不可用问题
+        vue$: "vue/dist/vue.esm.js" // 解决Vue.component 注册组件时template模板不可用问题
       }
+    },
+    optimization: {
+      minimizer: [
+        // 打包去除console.log，debugger等
+        new TerserPlugin({
+          terserOptions: {
+            ecma: undefined,
+            warnings: false,
+            parse: {},
+            compress: {
+              drop_console: false,
+              drop_debugger: false
+              // pure_funcs: ["console.log"] // 移除console
+            }
+          }
+        })
+      ]
     }
   },
   chainWebpack: config => {
@@ -51,6 +72,6 @@ module.exports = {
       .rule("images")
       .use("url-loader")
       .loader("url-loader")
-      .tap(options => Object.assign(options, { limit: 20000 })); //配置图片打包为base64最小限制
+      .tap(options => Object.assign(options, { limit: 20000 })); // 配置图片打包为base64最小限制
   }
 };

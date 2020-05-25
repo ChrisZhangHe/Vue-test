@@ -10,12 +10,11 @@
         </p>
       </template> -->
       <!-- <template> -->
-      <template v-slot:default="{dd}">
-        <p>second:{{dd}}</p>
+      <template v-slot:default="{ dd }">
+        <p>second:{{ dd }}</p>
         <h3>h3</h3>
       </template>
       <!-- <h2 >2</h2> -->
-
     </my-tags>
   </div>
 </template>

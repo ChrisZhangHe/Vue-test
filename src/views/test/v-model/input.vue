@@ -1,9 +1,6 @@
 <template>
   <div>
-    <el-input
-      v-model="inputVal"
-      @input="input"
-    ></el-input>
+    <el-input v-model="inputVal" @input="input"></el-input>
   </div>
 </template>
 <script>

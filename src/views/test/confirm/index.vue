@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <el-button @click="openConfirm">test confirm vue</el-button>
   </div>
 </template>

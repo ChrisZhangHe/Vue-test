@@ -1,8 +1,9 @@
 import Vue from "vue";
+
 Vue.component("blog-post", {
   props: ["blogVal"],
-  render: function(h) {
-    var self = this;
+  render(h) {
+    const self = this;
     //   var header = this.$scopedSlots.header('12345');
     // //   var header1 = this.$slots.header;
     //   return createElement('div', [
@@ -15,7 +16,7 @@ Vue.component("blog-post", {
           value: self.blogVal
         },
         on: {
-          input: function(event) {
+          input(event) {
             self.$emit("input", event);
           }
         }
