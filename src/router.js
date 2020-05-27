@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
-import store from "./store";
+import store from "./store/index";
 
 Vue.use(Router);
 const about = import("./views/About.vue");
@@ -113,15 +113,15 @@ const componentContext = require.context("./views/test", false, /.vue$/);
 const addRoutes = [];
 componentContext.keys().forEach(fileName => {
   const componentConfig = componentContext(fileName);
-  fileName = fileName
+  const name = fileName
     .split("/")
     .pop()
     .replace(/\.\w+$/, "");
   addRoutes.push({
-    path: `/${fileName}`,
+    path: `/${name}`,
     component: componentConfig.default
   });
-  store.commit("addDynamicRoutes", fileName);
+  store.commit("common/addDynamicRoutes", name);
 });
 route.addRoutes([
   ...addRoutes,

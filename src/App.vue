@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     paths() {
-      return this.$store.state.dynamicRoutes;
+      return this.$store.state.common.dynamicRoutes;
     }
   },
   methods: {},
