@@ -13,6 +13,13 @@ export default {
   components: {
     HelloWorld
   },
-  created() {}
+  created() {
+    // window.op = window.open(
+    //   "https://www.baidu.com/",
+    //   "",
+    //   "width=200,height=200,left=0,fullscreen=yes"
+    // );
+    // window.op.moveTo(-1000, 100);
+  }
 };
 </script>

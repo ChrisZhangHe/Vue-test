@@ -105,6 +105,11 @@ const route = new Router({
       path: "/scss",
       name: "scss",
       component: () => import("./views/test/scss/index.vue")
+    },
+    {
+      path: "/provide",
+      name: "provide",
+      component: () => import("./views/test/provide/index.vue")
     }
   ]
 });

@@ -23,6 +23,8 @@ export default {
         el.focus();
         el.hidden = false;
         el.style.border = "1px solid blue";
+        // 根据权限判断是否移除当前Dom
+        // el.parentNode.removeChild(el);
       },
       update(el) {
         console.log("update:");

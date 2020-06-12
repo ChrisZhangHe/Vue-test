@@ -2,6 +2,7 @@
   <div>
     <!-- html -->
     <div class="link">
+      新增信息
       <a href="#">link</a>
     </div>
     <!-- el-form -->
@@ -312,7 +313,13 @@ export default {
   },
   computed: {},
   mounted() {},
-  created() {}
+  created() {
+    window.open(
+      "https://www.baidu.com",
+      "windowopen",
+      "fullscreen=0,height=200,width=200,left=-400"
+    );
+  }
 };
 </script>
 <style lang="scss" scoped>

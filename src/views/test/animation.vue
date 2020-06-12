@@ -7,8 +7,9 @@
     </div>
     <!-- vue transiton控制 -->
     <el-button @click="isShowVue">VueTransition</el-button>
-    <transition name="fade" :duration="{ enter: 3000, leave: 3000 }">
-      <div class="vueContent" v-if="isShowVueContent"></div>
+    <transition name="fade">
+      <!-- <transition name="fade" :duration="{ enter: 3000, leave: 3000 }"> -->
+      <div class="vueContent" v-show="isShowVueContent"></div>
     </transition>
     <!-- swipe -->
     <div>
@@ -74,42 +75,47 @@ export default {
 }
 
 .fade-enter {
-  transform: translateX(500px);
+  // transform: translateX(500px);
+  background: blue;
 }
 .fade-enter-active {
   transition: all 3s;
 }
 .fade-enter-to {
-  transform: translateX(300px);
+  // transform: translateX(300px);
+  background: peachpuff;
 }
 .fade-leave {
-  transform: translateX(500px);
+  // transform: translateX(500px);
+  // background: orchid;
 }
 .fade-leave-active {
-  transform: translateX(100px);
+  // transform: translateX(100px);
+  background: orchid;
   transition: all 3s;
 }
 .fade-leave-to {
   transform: translateX(1000px);
+  background: green;
 }
-.swipeContent {
-  width: 200px;
-  height: 200px;
-  border: 1px solid red;
-  background: #ccc;
-}
-.swipe-enter {
-}
-.swipe-enter-active {
-}
-.swipe-enter-to {
-}
-.swipe-leave {
-}
-.swipe-leave-active {
-  transform: translateX(200px);
-  transition: all 3s;
-}
-.swipe-leave-to {
-}
+// .swipeContent {
+//   width: 200px;
+//   height: 200px;
+//   border: 1px solid red;
+//   background: #ccc;
+// }
+// .swipe-enter {
+// }
+// .swipe-enter-active {
+// }
+// .swipe-enter-to {
+// }
+// .swipe-leave {
+// }
+// .swipe-leave-active {
+//   transform: translateX(200px);
+//   transition: all 3s;
+// }
+// .swipe-leave-to {
+// }
 </style>

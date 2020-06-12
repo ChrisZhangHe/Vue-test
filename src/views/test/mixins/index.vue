@@ -1,22 +1,30 @@
 <template>
   <div>
-    datacNum:{{ cNum }}
+    num:{{ num }} datacNum:{{ cNum }}
     <el-input v-model="num"></el-input>
-    <c-mixins></c-mixins>
+    <component v-bind="param" :is="CMixins"></component>
   </div>
 </template>
 <script>
-import { mixinsConfig } from "./index";
-import CMixins from "./CMixins.vue";
+import mixinsConfig from "./index";
 
 export default {
   name: "Mixins",
   mixins: [mixinsConfig],
-  components: {
-    CMixins // () => import("./CMixins.vue")
+  data() {
+    return {
+      param: {
+        name: "chris",
+        id: "123"
+      },
+      CMixins: () => import("./CMixins")
+    };
   },
   created() {
     // this.num = 123;
+    setTimeout(() => {
+      this.num = 2;
+    }, 2000);
   }
 };
 </script>

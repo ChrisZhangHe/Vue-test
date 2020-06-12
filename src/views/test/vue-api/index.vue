@@ -26,6 +26,11 @@
   </div>
 </template>
 <script>
+// import ipcRenderer from "electron";
+const { ipcRenderer } = require("electron");
+
+debugger;
+ipcRenderer.sendSync("synchronous-message", "ping");
 export default {
   name: "VueApi",
   data() {
@@ -66,6 +71,12 @@ export default {
     // }
   },
   created() {
+    setTimeout(() => {
+      // alert(localStorage.getItem("a"));
+      window.location.href("http://localhost:8066/#/");
+    }, 1000);
+    // alert(this.$route.query.callback);
+    // this.$route.query.callback(12314);
     console.log(this.nameVal);
     // this.init();
     // setTimeout(() => {
