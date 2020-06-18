@@ -1,5 +1,7 @@
 <template>
   <div>
+    <!-- 原生animation -->
+    <div class="nativeAnimation">原生animation</div>
     <!-- 原生css控制 -->
     <el-button @click="isShow">显示内容</el-button>
     <div :class="contentClass" v-if="isShowContent">
@@ -118,4 +120,22 @@ export default {
 // }
 // .swipe-leave-to {
 // }
+.nativeAnimation {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background: brown;
+  border-radius: 8px;
+  animation: nativeAnimation 6s infinite;
+}
+@keyframes nativeAnimation {
+  50% {
+    background: chartreuse;
+    // width: 600px;
+    transform: scaleX(2);
+  }
+  // 100% {
+  //   background: cyan;
+  // }
+}
 </style>

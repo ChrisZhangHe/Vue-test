@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>count:{{ count }}</div>
+    <div>count2:{{ count2 }}</div>
     <div>count1:{{ count1 }}</div>
     <div>count3:{{ count3("count3") }}</div>
     <div>count4:{{ count4 }}</div>
@@ -15,9 +16,6 @@ const { mapState: testState } = createNamespacedHelpers("test");
 
 export default {
   name: "vuex",
-  data() {
-    return {};
-  },
   computed: {
     ...mapState("test", {
       count1: "count"
@@ -25,10 +23,11 @@ export default {
     ...testState({
       count4: "count"
     }),
+    ...testState(["count"]),
     ...mapGetters({
       count3: "test/getCountLength"
     }),
-    count() {
+    count2() {
       return this.$store.state.test.count;
     },
     length() {

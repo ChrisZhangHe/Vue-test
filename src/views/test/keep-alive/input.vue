@@ -18,6 +18,10 @@ export default {
   watch: {
     $route() {}
   },
-  created() {}
+  created() {},
+  beforeRouteLeave(to, from, next) {
+    this.$destroy();
+    next();
+  }
 };
 </script>

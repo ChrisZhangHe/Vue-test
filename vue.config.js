@@ -1,8 +1,9 @@
 // const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const postcss = require("postcss-plugin-px2rem");
 
 module.exports = {
-  lintOnSave: false,
+  lintOnSave: true,
   publicPath: "./",
   productionSourceMap: true,
   //   /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */
@@ -68,10 +69,31 @@ module.exports = {
     }
   },
   chainWebpack: config => {
+    // 配置图片打包为base64最小限制
     config.module
       .rule("images")
       .use("url-loader")
       .loader("url-loader")
-      .tap(options => Object.assign(options, { limit: 20000 })); // 配置图片打包为base64最小限制
+      .tap(options => Object.assign(options, { limit: 20000 }));
+  },
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          postcss({
+            rootValue: 20, // 换算基数， 默认100  ，这样的话把根标签的字体规定为1rem为50px,这样就可以从设计稿上量出多少个px直接在代码中写多上px了。
+            // unitPrecision: 5, //允许REM单位增长到的十进制数字。
+            // propWhiteList: [],  //默认值是一个空数组，这意味着禁用白名单并启用所有属性。
+            propBlackList: ["font-size"], // 黑名单
+            exclude: /(node_module)/, // 默认false，可以（reg）利用正则表达式排除某些文件夹的方法，例如/(node_module)\/如果想把前端UI框架内的px也转换成rem，请把此属性设为默认值
+            // selectorBlackList: [], //要忽略并保留为px的选择器
+            // ignoreIdentifier: false,  //（boolean/string）忽略单个属性的方法，启用ignoreidentifier后，replace将自动设置为true。
+            // replace: true, // （布尔值）替换包含REM的规则，而不是添加回退。
+            mediaQuery: false, // （布尔值）允许在媒体查询中转换px。
+            minPixelValue: 3 // 设置要替换的最小像素值(3px会被转rem)。 默认 0
+          })
+        ]
+      }
+    }
   }
 };

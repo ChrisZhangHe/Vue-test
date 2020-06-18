@@ -30,12 +30,15 @@ const route = new Router({
         {
           path: "input-a",
           name: "input-a",
-          component: () => import("./views/test/keep-alive/input")
+          component: () => import("./views/test/keep-alive/input"),
+          meta: {
+            isKeepAlive: true
+          }
         },
         {
           path: "input-b",
           name: "input-b",
-          component: () => import("./views/Home")
+          component: () => import("./views/test/keep-alive/input")
         }
       ]
     },

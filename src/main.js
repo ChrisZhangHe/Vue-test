@@ -6,6 +6,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
 import confirmInstall from "./views/test/confirm/install";
+import "@/js/rem";
+// import "@/css/normalize.scss";
 
 // eslint-disable-next-line no-unused-expressions
 import("./js/index");

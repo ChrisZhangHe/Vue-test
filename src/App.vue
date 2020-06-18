@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       // 包含在routePath中且isKeepAlive为true则保存状态信息
-      routePath: ["/route1"]
+      routePath: ["/route1", "/keep-alive/input-a"]
     };
   },
   computed: {
