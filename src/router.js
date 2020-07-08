@@ -113,6 +113,11 @@ const route = new Router({
       path: "/provide",
       name: "provide",
       component: () => import("./views/test/provide/index.vue")
+    },
+    {
+      path: "/autom-video",
+      name: "automVide",
+      component: () => import("./components/autom-video/index.vue")
     }
   ]
 });

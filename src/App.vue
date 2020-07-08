@@ -22,6 +22,7 @@
       <router-link to="/mixins" class="link">mixins</router-link>
       <router-link to="/funComponent" class="link">funComponent</router-link>
       <router-link to="/provide" class="link">provide</router-link>
+      <router-link to="/autom-video" class="link">autom-video</router-link>
       <!-- <router-link to="/checkModel" class="link">checkModel</router-link>
       <router-link to="/upload" class="link">upload</router-link>
       <router-link to="/event" class="link">event</router-link>-->
