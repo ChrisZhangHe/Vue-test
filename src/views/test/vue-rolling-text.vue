@@ -29,7 +29,7 @@
       </div>
     </content-rolling>
     <content-stop-rolling
-      type="left"
+      type="top"
       style="width:400px;height:80px;border:1px solid red;"
       :list="textArr"
       v-slot="{ item }"

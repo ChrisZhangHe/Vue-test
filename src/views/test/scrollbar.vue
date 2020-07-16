@@ -1,4 +1,5 @@
 <template>
+  <!-- 谷歌浏览器滚动条样式 -->
   <div class="scrollbar">
     <div>1</div>
     <div>1</div>

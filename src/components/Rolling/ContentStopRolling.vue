@@ -1,7 +1,12 @@
 // 内容从左至右或从上至下停顿滚动；滚动内容样式由外部控制；
 <template>
   <div class="textBox" @mouseover="mouseover" @mouseout="mouseout">
-    <transition v-on:enter="enterHandle" v-on:leave="leaveHandle" v-bind:css="false">
+    <transition
+      v-on:enter="enterHandle"
+      v-on:leave="leaveHandle"
+      v-on:before-leave="beforeLeave"
+      v-bind:css="false"
+    >
       <slot :item="item"></slot>
     </transition>
   </div>
@@ -80,7 +85,7 @@ export default {
         css.translateX = [0, "-100%"];
       }
 
-      window.Velocity(el, css, { duration: 1000, complete: done });
+      window.Velocity(el, css, { duration: this.animationTime, complete: done });
     },
     defaultLeave(el, done) {
       const css = { opacity: [1, 0], scale: 0.7 };
@@ -89,7 +94,7 @@ export default {
       } else {
         css.translateX = "100%";
       }
-      window.Velocity(el, css, { duration: 1000, complete: done });
+      window.Velocity(el, css, { duration: this.animationTime, complete: done });
     },
     enterHandle(el, done) {
       if (this.enter) {
@@ -104,6 +109,9 @@ export default {
       } else {
         this.defaultLeave(el, done);
       }
+    },
+    beforeLeave(el) {
+      el.style.position = "absolute";
     }
   },
   mounted() {
